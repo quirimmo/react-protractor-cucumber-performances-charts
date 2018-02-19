@@ -7,6 +7,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const BUILD_DIR = path.resolve(__dirname, 'dist');
 const SRC_DIR = path.resolve(__dirname, 'src');
 const APP_DIR = path.resolve(__dirname, 'src/app');
+const TSLINT_CONFIG = require('./tslint.json');
 
 const config = {
 	entry: SRC_DIR + '/app.ts',
@@ -32,20 +33,16 @@ const config = {
 	module: {
 		rules: [
 			{
-				test: /\.jsx$/,
-				exclude: /node_modules/,
-				use: 'babel-loader'
-			},
-			{
-				test: /\.ts$/,
+				test: /\.tsx|\.ts/,
 				exclude: /node_modules/,
 				use: 'ts-loader'
 			},
 			{
-				test: /\.tsx$/,
+                test: /\.tsx|\.ts/,
 				exclude: /node_modules/,
-				use: 'ts-loader'
-			},
+                loader: 'tslint-loader',
+                options: TSLINT_CONFIG
+            },
 			{
 				test: /\.css$/,
 				exclude: /node_modules/,
@@ -68,12 +65,7 @@ const config = {
 						loader: 'sass-loader'
 					}
 				]
-			},
-			// {
-			// 	test: /\.jsx$/,
-			// 	exclude: /node_modules/,
-			// 	use: ['eslint-loader']
-			// }
+			}
 		]
 	},
 	devServer: {

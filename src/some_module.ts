@@ -1,3 +1,3 @@
-const greeting: string = "Hello World!";
+const greeting = "Hello Worlddsadsa!";
 
 export default greeting;
