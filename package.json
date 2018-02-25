@@ -52,6 +52,7 @@
     "ts-loader": "^3.5.0",
     "tslint": "^5.9.1",
     "tslint-clean-code": "^0.2.3",
+    "tslint-config-prettier": "^1.9.0",
     "tslint-eslint-rules": "^5.0.0",
     "tslint-loader": "^3.5.3",
     "tslint-react": "^3.5.1",
