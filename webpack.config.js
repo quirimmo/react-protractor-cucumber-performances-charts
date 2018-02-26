@@ -10,7 +10,8 @@ const APP_DIR = path.resolve(__dirname, 'src/app');
 const TSLINT_CONFIG = require('./tslint.json');
 
 const config = {
-	entry: SRC_DIR + '/app.ts',
+	// entry: SRC_DIR + '/app.ts',
+	entry: SRC_DIR + '/index.tsx',
 	devtool: 'inline-source-map',
 	resolve: {
 		extensions: ['.ts', '.tsx', '.js', '.css', '.scss']
