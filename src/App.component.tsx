@@ -1,10 +1,13 @@
 import * as React from 'react';
+import PerformancesResultsReader from './model/PerformancesResultsReader';
 
 interface IAppProps extends React.Props<App> {}
 
 class App extends React.Component<IAppProps, {}> {
 	constructor(props: IAppProps) {
 		super(props);
+		const performancesResultsReader = new PerformancesResultsReader();
+		performancesResultsReader.read();
 	}
 
 	public render() {
@@ -67,7 +70,7 @@ export default App;
 // 							</div>
 // 						</div>
 // 					</HashRouter>
-// 				</div>
+// 				</div>@
 // 			</MuiThemeProvider>
 // 		);
 // 	}
