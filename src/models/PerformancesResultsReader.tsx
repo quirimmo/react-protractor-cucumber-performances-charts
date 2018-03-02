@@ -1,5 +1,6 @@
 import ScenarioData, { IScenarioObject } from './ScenarioData';
 import StepData, { IStepObject } from './StepData';
+import Utils from './Utils';
 
 const PERFORMANCES_DATA = require('./data.json');
 
@@ -13,9 +14,9 @@ class PerformancesResultsReader {
 	}
 
 	public read(): void {
-		this.totalExecutionTime = PERFORMANCES_DATA.totalTime;
+		this.totalExecutionTime = Utils.convertDurationFromMilliSecToSec(PERFORMANCES_DATA.totalTime);
 		PERFORMANCES_DATA.scenarios.forEach(onEachScenario.bind(this));
-		console.log(this.scenarios);
+		console.log(this.scenarios)
 
 		function onEachScenario(this: PerformancesResultsReader, scenario: IScenarioObject) {
 			const scenarioData: ScenarioData = new ScenarioData(scenario.name, scenario.duration, scenario.filePath);

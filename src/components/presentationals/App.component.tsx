@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PerformancesResultsReader from './model/PerformancesResultsReader';
+import PerformancesResultsReader from './../../models/PerformancesResultsReader';
 
 interface IAppProps extends React.Props<App> {}
 

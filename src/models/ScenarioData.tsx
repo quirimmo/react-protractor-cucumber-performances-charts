@@ -1,4 +1,5 @@
 import StepData from './StepData';
+import Utils from './Utils';
 
 class ScenarioData {
 	public name: string;
@@ -8,7 +9,7 @@ class ScenarioData {
 
 	constructor(name: string, duration: number, filePath: string, steps: StepData[] = []) {
 		this.name = name;
-		this.duration = duration;
+		this.duration = Utils.convertDurationFromMilliSecToSec(duration);
 		this.filePath = filePath;
 		this.steps = steps;
 	}

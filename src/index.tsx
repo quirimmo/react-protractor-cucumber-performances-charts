@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import history from './main-history';
 
-import App from './App.component';
+import App from './components/presentationals/App.component';
 
 ReactDOM.render(
 	<Router history={history}>
