@@ -13,10 +13,10 @@ class PerformancesResultsReader {
 		this.totalExecutionTime = 0;
 	}
 
-	public read(): void {
+	public read(): ScenarioData[] {
 		this.totalExecutionTime = Utils.convertDurationFromMilliSecToSec(PERFORMANCES_DATA.totalTime);
 		PERFORMANCES_DATA.scenarios.forEach(onEachScenario.bind(this));
-		console.log(this.scenarios)
+		return this.scenarios;
 
 		function onEachScenario(this: PerformancesResultsReader, scenario: IScenarioObject) {
 			const scenarioData: ScenarioData = new ScenarioData(scenario.name, scenario.duration, scenario.filePath);

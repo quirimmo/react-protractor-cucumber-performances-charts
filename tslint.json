@@ -30,6 +30,7 @@
         "arrow-parens": ["error", "as-needed"],
         "max-len": ["error", { "code": 200 }],
 		"no-unused-vars": ["error", { "vars": "local" }],
-		"no-var-requires": false
+		"no-var-requires": false,
+		"object-literal-sort-keys": false
 	}
 }
