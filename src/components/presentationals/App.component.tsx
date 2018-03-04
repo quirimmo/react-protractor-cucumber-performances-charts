@@ -4,9 +4,11 @@ import ScenarioData from 'models/ScenarioData';
 import StoreState from 'models/StoreState';
 import { Container, Row, Col, Badge } from 'reactstrap';
 import TotalDuration from './TotalDuration.component';
+import IAllScenariosBarChart from './AllScenariosBarChart.component';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './../../../assets/styles/main.scss';
+import AllScenariosBarChart from './AllScenariosBarChart.component';
 
 export interface IAppProps {
 	scenarios: ScenarioData[];
@@ -37,8 +39,14 @@ class App extends React.Component<IAppProps, StoreState> {
 				<br />
 				<br />
 				<Row>
-					<Col sm={{size: 6, offset: 3}}>
+					<Col sm={{ size: 6, offset: 3 }}>
 						<TotalDuration totalDuration={this.props.totalDuration} />
+					</Col>
+				</Row>
+				<br />
+				<Row>
+					<Col>
+						<AllScenariosBarChart />
 					</Col>
 				</Row>
 			</Container>
