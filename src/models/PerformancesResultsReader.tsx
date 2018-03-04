@@ -13,10 +13,9 @@ class PerformancesResultsReader {
 		this.totalExecutionTime = 0;
 	}
 
-	public read(): ScenarioData[] {
+	public read(): void {
 		this.totalExecutionTime = Utils.convertDurationFromMilliSecToSec(PERFORMANCES_DATA.totalTime);
 		PERFORMANCES_DATA.scenarios.forEach(onEachScenario.bind(this));
-		return this.scenarios;
 
 		function onEachScenario(this: PerformancesResultsReader, scenario: IScenarioObject) {
 			const scenarioData: ScenarioData = new ScenarioData(scenario.name, scenario.duration, scenario.filePath);
@@ -28,6 +27,14 @@ class PerformancesResultsReader {
 			const stepData: StepData = new StepData(step.name, step.duration);
 			scenario.steps.push(stepData);
 		}
+	}
+
+	public getScenarios(): ScenarioData[] {
+		return this.scenarios;
+	}
+
+	public getTotalDuration(): number {
+		return this.totalExecutionTime;
 	}
 }
 

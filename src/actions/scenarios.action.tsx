@@ -4,3 +4,8 @@ export const fetchScenarios = (scenarios: ScenarioData[]) => ({
 	type: 'FETCH_SCENARIOS',
 	scenarios
 });
+
+export const fetchTotalDuration = (duration: number) => ({
+	type: 'FETCH_TOTAL_DURATION',
+	duration
+});
