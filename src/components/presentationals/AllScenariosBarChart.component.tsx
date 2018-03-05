@@ -1,35 +1,21 @@
 import * as React from 'react';
-import ScenarioData from 'models/ScenarioData';
+import ScenarioData, { IScenarioChartObject } from 'models/ScenarioData';
 
 const BarChart = require('react-d3-components').BarChart;
 
 interface IAllScenariosBarChartProps {
-	scenarios: ScenarioData[];
+	scenarios: IScenarioChartObject[];
 }
 
-interface IScenarioChartObject {
-	name: string;
-	file: string;
-	x: string;
-	y: number;
-}
 
 class AllScenariosBarChart extends React.Component<IAllScenariosBarChartProps> {
-	public scenariosValues: IScenarioChartObject[];
-
 	constructor(props: IAllScenariosBarChartProps) {
 		super(props);
-		this.scenariosValues = this.props.scenarios.map((scenario, index) => ({
-			name: scenario.name,
-			file: scenario.filePath,
-			x: `${+(index + 1)}`,
-			y: scenario.duration
-		}));
 		this._getScenariosTooltip = this._getScenariosTooltip.bind(this);
 	}
 
 	public render() {
-		const dataValues = { values: this.scenariosValues };
+		const dataValues = { values: this.props.scenarios };
 
 		const input = {
 			data: dataValues,
@@ -73,7 +59,7 @@ class AllScenariosBarChart extends React.Component<IAllScenariosBarChartProps> {
 			file: 'error',
 			y: 0
 		};
-		const currentScenario = this.scenariosValues.find(scenario => scenario.x === x) || errorScenario;
+		const currentScenario = this.props.scenarios.find(scenario => scenario.x === x) || errorScenario;
 		return (
 			<div className="wrapper-scenario-chart-tooltip">
 				<h3>{currentScenario.name}</h3>

@@ -3,19 +3,22 @@ import { fetchScenarios, fetchTotalDuration } from './../../actions/scenarios.ac
 import App from './../presentationals/App.component';
 import ScenarioData from 'models/ScenarioData';
 import StoreState from 'models/StoreState';
+import PerformancesResultsReader from './../../models/PerformancesResultsReader';
 
-const mapStateToProps = (state: StoreState, ownProps: any) => ({
-	scenarios: state.scenarios,
-	totalDuration: state.totalDuration
-});
+const mapStateToProps = (state: StoreState, ownProps: any) => {
+	const performancesResultsReader = new PerformancesResultsReader();
+	performancesResultsReader.read();
+	const scenarios = performancesResultsReader.getScenarios();
+	const totalDuration = performancesResultsReader.getTotalDuration();
+	state.scenarios = scenarios;
+	state.totalDuration = totalDuration;
+	return {
+		scenarios: state.scenarios,
+		totalDuration: state.totalDuration
+	};
+};
 
 const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
-	onFetchScenarios: (scenarios: ScenarioData[]) => {
-		dispatch(fetchScenarios(scenarios));
-	},
-	onFetchTotalDuration: (totalDuration: number) => {
-		dispatch(fetchTotalDuration(totalDuration));
-	}
 });
 
 const AppPage = connect(mapStateToProps, mapDispatchToProps)(App);

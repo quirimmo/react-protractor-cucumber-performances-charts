@@ -23,3 +23,10 @@ export interface IScenarioObject {
 	filePath: string;
 	steps: object[];
 }
+
+export interface IScenarioChartObject {
+	name: string;
+	file: string;
+	x: string;
+	y: number;
+}
