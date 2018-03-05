@@ -18,11 +18,14 @@ export interface IAppProps {
 }
 
 class App extends React.Component<IAppProps, StoreState> {
+	public scenarios: ScenarioData[];
+
 	constructor(props: IAppProps) {
 		super(props);
 		const performancesResultsReader = new PerformancesResultsReader();
 		performancesResultsReader.read();
-		this.props.onFetchScenarios(performancesResultsReader.getScenarios());
+		this.scenarios = performancesResultsReader.getScenarios();
+		this.props.onFetchScenarios(this.scenarios);
 		this.props.onFetchTotalDuration(performancesResultsReader.getTotalDuration());
 	}
 
@@ -46,7 +49,7 @@ class App extends React.Component<IAppProps, StoreState> {
 				<br />
 				<Row>
 					<Col>
-						<AllScenariosBarChart />
+						<AllScenariosBarChart scenarios={this.scenarios} />
 					</Col>
 				</Row>
 			</Container>

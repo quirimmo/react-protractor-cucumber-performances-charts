@@ -1,24 +1,35 @@
 import * as React from 'react';
+import ScenarioData from 'models/ScenarioData';
 
 const BarChart = require('react-d3-components').BarChart;
 
-export interface IAllScenariosBarChartProps {
+interface IAllScenariosBarChartProps {
+	scenarios: ScenarioData[];
+}
+
+interface IScenarioChartObject {
+	name: string;
+	file: string;
+	x: string;
+	y: number;
 }
 
 class AllScenariosBarChart extends React.Component<IAllScenariosBarChartProps> {
+	public scenariosValues: IScenarioChartObject[];
+
 	constructor(props: IAllScenariosBarChartProps) {
 		super(props);
+		this.scenariosValues = this.props.scenarios.map((scenario, index) => ({
+			name: scenario.name,
+			file: scenario.filePath,
+			x: `${+(index + 1)}`,
+			y: scenario.duration
+		}));
+		this._getScenariosTooltip = this._getScenariosTooltip.bind(this);
 	}
 
 	public render() {
-		const dataValues = {
-			values: [{
-				name: 'Scenario Name',
-				file: 'Filepath',
-				x: '1',
-				y: 5000
-			}]
-		};
+		const dataValues = { values: this.scenariosValues };
 
 		const input = {
 			data: dataValues,
@@ -27,7 +38,7 @@ class AllScenariosBarChart extends React.Component<IAllScenariosBarChartProps> {
 			barPadding: 0.8,
 			xLabel: 'X',
 			yLabel: 'Y',
-			tooltip: this._getDefaultTooltip
+			tooltip: this._getScenariosTooltip
 		};
 
 		return (
@@ -56,14 +67,20 @@ class AllScenariosBarChart extends React.Component<IAllScenariosBarChartProps> {
 		);
 	}
 
-	public _getDefaultTooltip(x: number, y0: number, y: number) {
-		console.log('getting default tooltip', x, y0, y);
-		return 'AAA';
-		// return (
-		// 	<div>
-		// 		<h1>AAAA {y.toString()}</h1>
-		// 	</div>
-		// );
+	public _getScenariosTooltip(x: any) {
+		const errorScenario = {
+			name: 'error',
+			file: 'error',
+			y: 0
+		};
+		const currentScenario = this.scenariosValues.find(scenario => scenario.x === x) || errorScenario;
+		return (
+			<div className="wrapper-scenario-chart-tooltip">
+				<h3>{currentScenario.name}</h3>
+				<h4 className="single-scenario-file">{currentScenario.file}</h4>
+				<h5 className="single-scenario-duration">{currentScenario.y.toString()} seconds</h5>
+			</div>
+		);
 	}
 }
 
