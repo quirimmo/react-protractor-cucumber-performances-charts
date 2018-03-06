@@ -7,18 +7,22 @@ interface IAllScenariosBarChartProps {
 	scenarios: IScenarioChartObject[];
 }
 
-
 class AllScenariosBarChart extends React.Component<IAllScenariosBarChartProps> {
+	public scenariosSlices: IScenarioChartObject[][];
+
 	constructor(props: IAllScenariosBarChartProps) {
 		super(props);
 		this._getScenariosTooltip = this._getScenariosTooltip.bind(this);
+
+		const slicesSize: number = 15;
+		this.scenariosSlices = [];
+		for (let i = 0; i < this.props.scenarios.length; i += slicesSize) {
+			this.scenariosSlices.push(this.props.scenarios.slice(i, i + slicesSize));
+		}
 	}
 
 	public render() {
-		const dataValues = { values: this.props.scenarios };
-
 		const input = {
-			data: dataValues,
 			width: 1000,
 			height: 600,
 			barPadding: 0.8,
@@ -28,28 +32,33 @@ class AllScenariosBarChart extends React.Component<IAllScenariosBarChartProps> {
 		};
 
 		return (
-			<BarChart
-				data={input.data}
-				width={input.width}
-				height={input.height}
-				barPadding={input.barPadding}
-				xAxis={{
-					innerTickSize: 5,
-					label: input.xLabel
-				}}
-				yAxis={{
-					innerTickSize: 5,
-					label: input.yLabel
-				}}
-				tooltipHtml={input.tooltip}
-				colorByLabel={false}
-				margin={{
-					top: 10,
-					bottom: 50,
-					left: 50,
-					right: 10
-				}}
-			/>
+			<div>
+				{this.scenariosSlices.map((scenarioValues: IScenarioChartObject[], index: number) => (
+					<BarChart
+						key={index}
+						data={{ values: scenarioValues }}
+						width={input.width}
+						height={input.height}
+						barPadding={input.barPadding}
+						xAxis={{
+							innerTickSize: 5,
+							label: input.xLabel
+						}}
+						yAxis={{
+							innerTickSize: 5,
+							label: input.yLabel
+						}}
+						tooltipHtml={input.tooltip}
+						colorByLabel={false}
+						margin={{
+							top: 10,
+							bottom: 50,
+							left: 50,
+							right: 10
+						}}
+					/>
+				))}
+			</div>
 		);
 	}
 
