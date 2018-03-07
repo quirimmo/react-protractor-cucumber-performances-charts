@@ -6,10 +6,12 @@ const PERFORMANCES_DATA = require('./data.json');
 
 class PerformancesResultsReader {
 	public scenarios: ScenarioData[];
+	public steps: StepData[];
 	public totalExecutionTime: number;
 
 	constructor() {
 		this.scenarios = [];
+		this.steps = [];
 		this.totalExecutionTime = 0;
 	}
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BrowserRouter, Switch, Route, Redirect, NavLink } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect, NavLink, withRouter } from 'react-router-dom';
 import PerformancesResultsReader from './../../models/PerformancesResultsReader';
 import ScenarioData from 'models/ScenarioData';
 import StoreState from 'models/StoreState';
@@ -12,6 +12,7 @@ import './../../../assets/styles/main.scss';
 import AllScenariosBarChart from './AllScenariosBarChart.component';
 import Main from './Main.component';
 import MainPage from './../containers/MainPage.component';
+import StepsPage from './../containers/StepsPage.component';
 
 export interface IAppProps {
 	scenarios: ScenarioData[];
@@ -23,47 +24,50 @@ export interface IAppProps {
 class App extends React.Component<IAppProps, StoreState> {
 	constructor(props: IAppProps) {
 		super(props);
-		this.getMainPageRoute = this.getMainPageRoute.bind(this);
+		this.getScenariosPageRoute = this.getScenariosPageRoute.bind(this);
+		this.getStepsPageRoute = this.getStepsPageRoute.bind(this);
 	}
 
-	public getMainPageRoute(routeProps: object) {
+	public getScenariosPageRoute(routeProps: object) {
 		return <MainPage scenarios={this.props.scenarios} totalDuration={this.props.totalDuration} />;
+	}
+
+	public getStepsPageRoute(routeProps: object) {
+		return <StepsPage />;
 	}
 
 	public render() {
 		return (
-			<Container className="main-app-wrapper">
-				<Row>
-					<Col>
-						<h2 className="main-app-title">
-							<Badge color="secondary">Protractor Cucumber Performances Charts</Badge>
-						</h2>
-					</Col>
-				</Row>
-				<br />
-				<Row>
-					<Col>
-						<Nav>
-							<NavItem>
-								<NavLink to="/main">Main Page</NavLink>
-							</NavItem>
-						</Nav>
-					</Col>
-				</Row>
-				<br />
-				<Row>
-					<Col>
-						<BrowserRouter>
+			<BrowserRouter>
+				<Container className="main-app-wrapper">
+					<Row>
+						<Col>
+							<h2 className="main-app-title">
+								<Badge color="secondary">Protractor Cucumber Performances Charts</Badge>
+							</h2>
+						</Col>
+					</Row>
+					<br />
+					<Row>
+						<Col>
+							<NavLink to="/main">Scenarios Page</NavLink>
+						</Col>
+						<Col>
+							<NavLink to="/steps">Steps Page</NavLink>
+						</Col>
+					</Row>
+					<br />
+					<Row>
+						<Col>
 							<Switch>
-								<Route path="/main" render={this.getMainPageRoute} />
-								{/* <Route path="/main" render={this.getMainPageRoute} /> */}
+								<Route path="/main" render={this.getScenariosPageRoute} />
+								<Route path="/steps" render={this.getStepsPageRoute} />
 								<Redirect from="/" to="main" />
 							</Switch>
-						</BrowserRouter>
-					</Col>
-				</Row>
-				<br />
-			</Container>
+						</Col>
+					</Row>
+				</Container>
+			</BrowserRouter>
 		);
 	}
 }

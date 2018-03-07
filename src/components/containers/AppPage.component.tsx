@@ -4,12 +4,17 @@ import App from './../presentationals/App.component';
 import ScenarioData from 'models/ScenarioData';
 import StoreState from 'models/StoreState';
 import PerformancesResultsReader from './../../models/PerformancesResultsReader';
+import StatisticsResultsReader from './../../models/StatisticsResultsReader';
 
 const mapStateToProps = (state: StoreState, ownProps: any) => {
 	const performancesResultsReader = new PerformancesResultsReader();
 	performancesResultsReader.read();
 	const scenarios = performancesResultsReader.getScenarios();
 	const totalDuration = performancesResultsReader.getTotalDuration();
+	const statisticsResultsReader = new StatisticsResultsReader();
+	statisticsResultsReader.read();
+
+
 	state.scenarios = scenarios;
 	state.totalDuration = totalDuration;
 	return {
