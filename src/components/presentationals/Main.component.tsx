@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ScenarioData, { IScenarioChartObject } from 'models/ScenarioData';
-import { Container, Row, Col, Badge } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import TotalDuration from './TotalDuration.component';
 import AllScenariosBarChart from './AllScenariosBarChart.component';
 

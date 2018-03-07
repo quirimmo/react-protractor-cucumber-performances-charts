@@ -1,10 +1,10 @@
 import * as React from 'react';
-// import ScenarioData, { IScenarioChartObject } from 'models/ScenarioData';
-// import { Container, Row, Col, Badge } from 'reactstrap';
-// import TotalDuration from './TotalDuration.component';
-// import AllScenariosBarChart from './AllScenariosBarChart.component';
+import { IStepChartObject } from 'models/StepData';
+import { Container, Row, Col } from 'reactstrap';
+import AllStepsBarChart from './AllStepsBarChart.component';
 
 interface IStepsProps {
+	stepsChartData: IStepChartObject[];
 }
 
 class Steps extends React.Component<IStepsProps> {
@@ -14,7 +14,13 @@ class Steps extends React.Component<IStepsProps> {
 
 	public render() {
 		return (
-			<div>Component Steps Page</div>
+			<Container>
+				<Row>
+					<Col>
+						<AllStepsBarChart steps={this.props.stepsChartData} />
+					</Col>
+				</Row>
+			</Container>
 		);
 	}
 }

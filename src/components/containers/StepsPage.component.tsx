@@ -1,21 +1,18 @@
 import { connect, Dispatch } from 'react-redux';
 
-// import Main from './../presentationals/Main.component';
-// import ScenarioData from 'models/ScenarioData';
+import StepData from 'models/StepData';
 import StoreState from 'models/StoreState';
 import Steps from './../presentationals/Steps.component';
 
 const mapStateToProps = (state: StoreState, ownProps: any) => {
-	// const scenariosChartData = ownProps.scenarios.map((scenario: ScenarioData, index: number) => ({
-	// 	name: scenario.name,
-	// 	file: scenario.filePath,
-	// 	x: `${+(index + 1)}`,
-	// 	y: scenario.duration
-	// }));
-	// return {
-	// 	scenariosChartData
-	// };
-	return {};
+	const stepsChartData = ownProps.steps.map((step: StepData, index: number) => ({
+		name: step.name,
+		x: `${+(index + 1)}`,
+		y: step.duration
+	}));
+	return {
+		stepsChartData
+	};
 };
 
 const mapDispatchToProps = (dispatch: Dispatch<any>) => ({

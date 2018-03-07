@@ -13,12 +13,14 @@ const mapStateToProps = (state: StoreState, ownProps: any) => {
 	const totalDuration = performancesResultsReader.getTotalDuration();
 	const statisticsResultsReader = new StatisticsResultsReader();
 	statisticsResultsReader.read();
-
+	const steps = statisticsResultsReader.getSteps();
 
 	state.scenarios = scenarios;
+	state.steps = steps;
 	state.totalDuration = totalDuration;
 	return {
 		scenarios: state.scenarios,
+		steps: state.steps,
 		totalDuration: state.totalDuration
 	};
 };

@@ -13,9 +13,11 @@ import AllScenariosBarChart from './AllScenariosBarChart.component';
 import Main from './Main.component';
 import MainPage from './../containers/MainPage.component';
 import StepsPage from './../containers/StepsPage.component';
+import StepData from 'models/StepData';
 
 export interface IAppProps {
 	scenarios: ScenarioData[];
+	steps: StepData[];
 	totalDuration: number;
 	onFetchScenarios: (scenarios: ScenarioData[]) => void;
 	onFetchTotalDuration: (duration: number) => void;
@@ -33,7 +35,7 @@ class App extends React.Component<IAppProps, StoreState> {
 	}
 
 	public getStepsPageRoute(routeProps: object) {
-		return <StepsPage />;
+		return <StepsPage steps={this.props.steps} />;
 	}
 
 	public render() {

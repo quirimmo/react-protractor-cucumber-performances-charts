@@ -1,6 +1,8 @@
 import StepData from './StepData';
+import ScenarioData from './ScenarioData';
 
 export default interface StoreState {
-	scenarios: StepData[];
+	scenarios: ScenarioData[];
+	steps: StepData[];
 	totalDuration: number;
 };

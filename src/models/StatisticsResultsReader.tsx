@@ -15,18 +15,6 @@ class StatisticsResultsReader {
 	public read(): void {
 		this.totalExecutionTime = Utils.convertDurationFromMilliSecToSec(STATISTICS_DATA.duration);
 		this.steps = STATISTICS_DATA.steps.map((step: IStepObject) => new StepData(step.name, step.duration));
-		console.log(this.steps);
-		// this.steps = STATISTICS_DATA.steps.map((this, step) => onEachStep.bind(this));
-
-		// function onEachStep(this: StatisticsResultsReader, step: IStepObject) {
-		// 	const stepData: StepData = new StepData(step.name, step.duration);
-		// 	this.steps.push(stepData);
-		// }
-
-		// function onEachScenarioStep(this: PerformancesResultsReader, scenario: ScenarioData, step: IStepObject) {
-		// 	const stepData: StepData = new StepData(step.name, step.duration);
-		// 	scenario.steps.push(stepData);
-		// }
 	}
 
 	public getSteps(): StepData[] {
