@@ -1,5 +1,6 @@
 import * as React from 'react';
 import ScenarioData, { IScenarioChartObject } from 'models/ScenarioData';
+import PerformancesBarChartTooltip from './PerformancesBarChartTooltip.component';
 
 const BarChart = require('react-d3-components').BarChart;
 
@@ -84,27 +85,11 @@ class PerformancesBarChart extends React.Component<IPerformancesBarChartProps> {
 	}
 
 	private getDefaultTooltip(x: string) {
-		const errorScenario = {
-			title: 'error',
-			subTitle: 'error',
-			y: 0
-		};
-		const currentElement = this.props.data.find(el => el.x === x) || errorScenario;
-		return (
-			<div className="wrapper-scenario-chart-tooltip">
-				<h3>{currentElement.title}</h3>
-				{getSubTitle(currentElement.subTitle)}
-				<h5 className="single-scenario-duration">{currentElement.y.toString()} seconds</h5>
-			</div>
-		);
-
-		function getSubTitle(subTitle: string | undefined): React.ReactElement<HTMLElement> | void {
-			if (currentElement.subTitle) {
-				return <h4 className="single-scenario-file">{subTitle}</h4>;
-			} else {
-				return;
-			}
+		const currentElement = this.props.data.find(el => el.x === x);
+		if (currentElement) {
+			return <PerformancesBarChartTooltip title={currentElement.title} subTitle={currentElement.subTitle} y={currentElement.y} />;
 		}
+		return null;
 	}
 }
 
