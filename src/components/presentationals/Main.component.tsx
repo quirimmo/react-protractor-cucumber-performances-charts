@@ -4,11 +4,12 @@ import { Container, Row, Col, Collapse, Button, ListGroup, ListGroupItem } from 
 import TotalDuration from './TotalDuration.component';
 import AllScenariosBarChart from './AllScenariosBarChart.component';
 import { NavLink } from 'react-router-dom';
+import PerformancesBarChart, { IBarChartData } from './PerformancesBarChart.component';
 
 interface IMainProps {
 	scenarios: ScenarioData[];
 	totalDuration: number;
-	scenariosChartData: IScenarioChartObject[];
+	scenariosChartData: IBarChartData[];
 	selectedScenario: any;
 	onSelectScenario: (selectedScenario: any) => void;
 }
@@ -20,7 +21,6 @@ interface IScenariosPageState {
 class Main extends React.Component<IMainProps, IScenariosPageState> {
 	constructor(props: IMainProps) {
 		super(props);
-		console.log(this.props.scenarios);
 		this.state = { collapse: false };
 		this.toggle = this.toggle.bind(this);
 		this.getAllScenariosListItems = this.getAllScenariosListItems.bind(this);
@@ -39,7 +39,9 @@ class Main extends React.Component<IMainProps, IScenariosPageState> {
 	public getAllScenariosListItems() {
 		return this.props.scenariosChartData.map((el, index) => (
 			<ListGroupItem key={index}>
-				<NavLink onClick={this.onSelectScenario} to="/scenario-details">{el.name} [{el.file}]</NavLink>
+				<NavLink onClick={this.onSelectScenario} to="/scenario-details">
+					{el.title} [{el.subTitle}]
+				</NavLink>
 			</ListGroupItem>
 		));
 	}
@@ -71,7 +73,12 @@ class Main extends React.Component<IMainProps, IScenariosPageState> {
 				<br />
 				<Row>
 					<Col>
-						<AllScenariosBarChart scenarios={this.props.scenariosChartData} />
+						<PerformancesBarChart
+							slicesSize={15}
+							data={this.props.scenariosChartData}
+							titleYAxis="Seconds"
+							titleXAxis="Scenarios"
+						/>
 					</Col>
 				</Row>
 			</Container>

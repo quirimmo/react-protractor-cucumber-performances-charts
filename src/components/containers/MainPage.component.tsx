@@ -7,8 +7,8 @@ import { selectScenario } from './../../actions/scenarios.action';
 
 const mapStateToProps = (state: StoreState, ownProps: any) => {
 	const scenariosChartData = ownProps.scenarios.map((scenario: ScenarioData, index: number) => ({
-		name: scenario.name,
-		file: scenario.filePath,
+		title: scenario.name,
+		subTitle: scenario.filePath,
 		x: `${+(index + 1)}`,
 		y: scenario.duration
 	}));
