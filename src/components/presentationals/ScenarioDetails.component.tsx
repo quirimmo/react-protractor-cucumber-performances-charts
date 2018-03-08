@@ -1,6 +1,8 @@
 import * as React from 'react';
+import ScenarioData from 'models/ScenarioData';
 
 interface IScenarioDetailsProps {
+	scenario: ScenarioData
 }
 
 
@@ -12,7 +14,7 @@ class ScenarioDetails extends React.Component<IScenarioDetailsProps> {
 
 	public render() {
 		return (
-			<div>Scenario Details Component</div>
+			<div>{this.props.scenario.name}</div>
 		);
 	}
 }

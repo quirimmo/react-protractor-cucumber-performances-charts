@@ -20,8 +20,8 @@ export interface IAppProps {
 	scenarios: ScenarioData[];
 	steps: StepData[];
 	totalDuration: number;
-	selectedScenario: any;
-	onSelectScenario: (selectedScenario: ScenarioData) => void;
+	// selectedScenario: any;
+	// onSelectScenario: (selectedScenario: ScenarioData) => void;
 }
 
 class App extends React.Component<IAppProps, StoreState> {
@@ -57,19 +57,16 @@ class App extends React.Component<IAppProps, StoreState> {
 					</Row>
 					<br />
 					<Row>
-						<Col>
+						<Col sm="2">
 							<NavLink to="/main">Scenarios Page</NavLink>
 						</Col>
-						<Col>
+						<Col sm="2">
 							<NavLink to="/steps">Steps Page</NavLink>
-						</Col>
-						<Col>
-							<NavLink to="/scenario-details">Scenario Details</NavLink>
 						</Col>
 					</Row>
 					<br />
 					<Row>
-						<Col>
+						<Col className="page-content-wrapper">
 							<Switch>
 								<Route path="/main" render={this.getScenariosPageRoute} />
 								<Route path="/steps" render={this.getStepsPageRoute} />

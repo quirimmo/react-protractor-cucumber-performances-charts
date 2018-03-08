@@ -3,10 +3,14 @@ import ScenarioData, { IScenarioChartObject } from 'models/ScenarioData';
 import { Container, Row, Col, Collapse, Button, ListGroup, ListGroupItem } from 'reactstrap';
 import TotalDuration from './TotalDuration.component';
 import AllScenariosBarChart from './AllScenariosBarChart.component';
+import { NavLink } from 'react-router-dom';
 
 interface IMainProps {
+	scenarios: ScenarioData[];
 	totalDuration: number;
 	scenariosChartData: IScenarioChartObject[];
+	selectedScenario: any;
+	onSelectScenario: (selectedScenario: any) => void;
 }
 
 interface IScenariosPageState {
@@ -16,9 +20,16 @@ interface IScenariosPageState {
 class Main extends React.Component<IMainProps, IScenariosPageState> {
 	constructor(props: IMainProps) {
 		super(props);
+		console.log(this.props.scenarios);
 		this.state = { collapse: false };
 		this.toggle = this.toggle.bind(this);
 		this.getAllScenariosListItems = this.getAllScenariosListItems.bind(this);
+		this.onSelectScenario = this.onSelectScenario.bind(this);
+		this.props.onSelectScenario(null);
+	}
+
+	public onSelectScenario() {
+		this.props.onSelectScenario(this.props.scenarios[0]);
 	}
 
 	public toggle() {
@@ -28,7 +39,7 @@ class Main extends React.Component<IMainProps, IScenariosPageState> {
 	public getAllScenariosListItems() {
 		return this.props.scenariosChartData.map((el, index) => (
 			<ListGroupItem key={index}>
-				{el.name} [{el.file}]
+				<NavLink onClick={this.onSelectScenario} to="/scenario-details">{el.name} [{el.file}]</NavLink>
 			</ListGroupItem>
 		));
 	}
