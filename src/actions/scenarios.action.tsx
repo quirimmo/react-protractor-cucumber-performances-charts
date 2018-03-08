@@ -9,3 +9,8 @@ export const fetchTotalDuration = (duration: number) => ({
 	type: 'FETCH_TOTAL_DURATION',
 	duration
 });
+
+export const selectScenario = (selectedScenario: ScenarioData) => ({
+	type: 'SELECT_SCENARIO',
+	selectedScenario
+});

@@ -5,4 +5,5 @@ export default interface StoreState {
 	scenarios: ScenarioData[];
 	steps: StepData[];
 	totalDuration: number;
+	selectedScenario: ScenarioData | null;
 };

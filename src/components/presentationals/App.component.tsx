@@ -14,13 +14,14 @@ import Main from './Main.component';
 import MainPage from './../containers/MainPage.component';
 import StepsPage from './../containers/StepsPage.component';
 import StepData from 'models/StepData';
+import ScenarioDetailsPage from '../containers/ScenarioDetailsPage.component';
 
 export interface IAppProps {
 	scenarios: ScenarioData[];
 	steps: StepData[];
 	totalDuration: number;
-	onFetchScenarios: (scenarios: ScenarioData[]) => void;
-	onFetchTotalDuration: (duration: number) => void;
+	selectedScenario: any;
+	onSelectScenario: (selectedScenario: ScenarioData) => void;
 }
 
 class App extends React.Component<IAppProps, StoreState> {
@@ -28,6 +29,7 @@ class App extends React.Component<IAppProps, StoreState> {
 		super(props);
 		this.getScenariosPageRoute = this.getScenariosPageRoute.bind(this);
 		this.getStepsPageRoute = this.getStepsPageRoute.bind(this);
+		this.getScenarioDetailsPageRoute = this.getScenarioDetailsPageRoute.bind(this);
 	}
 
 	public getScenariosPageRoute(routeProps: object) {
@@ -36,6 +38,10 @@ class App extends React.Component<IAppProps, StoreState> {
 
 	public getStepsPageRoute(routeProps: object) {
 		return <StepsPage steps={this.props.steps} />;
+	}
+
+	public getScenarioDetailsPageRoute(routeProps: object) {
+		return <ScenarioDetailsPage />;
 	}
 
 	public render() {
@@ -57,6 +63,9 @@ class App extends React.Component<IAppProps, StoreState> {
 						<Col>
 							<NavLink to="/steps">Steps Page</NavLink>
 						</Col>
+						<Col>
+							<NavLink to="/scenario-details">Scenario Details</NavLink>
+						</Col>
 					</Row>
 					<br />
 					<Row>
@@ -64,6 +73,7 @@ class App extends React.Component<IAppProps, StoreState> {
 							<Switch>
 								<Route path="/main" render={this.getScenariosPageRoute} />
 								<Route path="/steps" render={this.getStepsPageRoute} />
+								<Route path="/scenario-details" render={this.getScenarioDetailsPageRoute} />
 								<Redirect from="/" to="main" />
 							</Switch>
 						</Col>
