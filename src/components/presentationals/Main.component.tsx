@@ -2,7 +2,6 @@ import * as React from 'react';
 import ScenarioData, { IScenarioChartObject } from 'models/ScenarioData';
 import { Container, Row, Col, Collapse, Button, ListGroup, ListGroupItem } from 'reactstrap';
 import TotalDuration from './TotalDuration.component';
-import AllScenariosBarChart from './AllScenariosBarChart.component';
 import { NavLink } from 'react-router-dom';
 import PerformancesBarChart, { IBarChartData } from './PerformancesBarChart.component';
 

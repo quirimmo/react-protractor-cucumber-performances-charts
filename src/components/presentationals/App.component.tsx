@@ -1,27 +1,22 @@
 import * as React from 'react';
-import { BrowserRouter, Switch, Route, Redirect, NavLink, withRouter } from 'react-router-dom';
-import PerformancesResultsReader from './../../models/PerformancesResultsReader';
-import ScenarioData from 'models/ScenarioData';
+import { BrowserRouter, Switch, Route, Redirect, NavLink } from 'react-router-dom';
 import StoreState from 'models/StoreState';
-import { Container, Row, Col, Badge, Nav, NavItem } from 'reactstrap';
+import { Container, Row, Col, Badge } from 'reactstrap';
+
+import MainPage from './../containers/MainPage.component';
+import StepsPage from './../containers/StepsPage.component';
+import ScenarioData from 'models/ScenarioData';
+import StepData from 'models/StepData';
+import ScenarioDetailsPage from '../containers/ScenarioDetailsPage.component';
 import TotalDuration from './TotalDuration.component';
-import IAllScenariosBarChart from './AllScenariosBarChart.component';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './../../../assets/styles/main.scss';
-import AllScenariosBarChart from './AllScenariosBarChart.component';
-import Main from './Main.component';
-import MainPage from './../containers/MainPage.component';
-import StepsPage from './../containers/StepsPage.component';
-import StepData from 'models/StepData';
-import ScenarioDetailsPage from '../containers/ScenarioDetailsPage.component';
 
 export interface IAppProps {
 	scenarios: ScenarioData[];
 	steps: StepData[];
 	totalDuration: number;
-	// selectedScenario: any;
-	// onSelectScenario: (selectedScenario: ScenarioData) => void;
 }
 
 class App extends React.Component<IAppProps, StoreState> {
