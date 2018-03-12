@@ -1,0 +1,2 @@
+Refactor all code
+Add duration also in the steps

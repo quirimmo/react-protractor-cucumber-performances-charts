@@ -16,9 +16,3 @@ export interface IStepObject {
 	name: string;
 	duration: number;
 }
-export interface IStepChartObject {
-	name: string;
-	file: string;
-	x: string;
-	y: number;
-}

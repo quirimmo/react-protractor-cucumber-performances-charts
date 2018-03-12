@@ -1,7 +1,6 @@
 import ScenarioData, { IScenarioObject } from './ScenarioData';
 import StepData, { IStepObject } from './StepData';
 import Utils from './Utils';
-
 const PERFORMANCES_DATA = require('./data.json');
 
 class PerformancesResultsReader {

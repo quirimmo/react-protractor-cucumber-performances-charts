@@ -1,7 +1,5 @@
 import * as React from 'react';
-import ScenarioData, { IScenarioChartObject } from 'models/ScenarioData';
 import PerformancesBarChartTooltip from './PerformancesBarChartTooltip.component';
-
 const BarChart = require('react-d3-components').BarChart;
 
 export interface IBarChartData {

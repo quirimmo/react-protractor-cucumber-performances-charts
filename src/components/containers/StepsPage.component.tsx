@@ -1,5 +1,4 @@
 import { connect, Dispatch } from 'react-redux';
-
 import StepData from 'models/StepData';
 import StoreState from 'models/StoreState';
 import Steps from './../presentationals/Steps.component';
@@ -15,8 +14,7 @@ const mapStateToProps = (state: StoreState, ownProps: any) => {
 	};
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
-});
+const mapDispatchToProps = (dispatch: Dispatch<any>) => ({});
 
 const StepsPage = connect(mapStateToProps, mapDispatchToProps)(Steps);
 

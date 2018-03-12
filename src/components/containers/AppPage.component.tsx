@@ -1,7 +1,5 @@
 import { connect, Dispatch } from 'react-redux';
-import { fetchScenarios, fetchTotalDuration } from './../../actions/scenarios.action';
 import App from './../presentationals/App.component';
-import ScenarioData from 'models/ScenarioData';
 import StoreState from 'models/StoreState';
 import PerformancesResultsReader from './../../models/PerformancesResultsReader';
 import StatisticsResultsReader from './../../models/StatisticsResultsReader';
@@ -25,8 +23,7 @@ const mapStateToProps = (state: StoreState, ownProps: any) => {
 	};
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
-});
+const mapDispatchToProps = (dispatch: Dispatch<any>) => ({});
 
 const AppPage = connect(mapStateToProps, mapDispatchToProps)(App);
 

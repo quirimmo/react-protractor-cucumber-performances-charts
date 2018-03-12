@@ -2,13 +2,11 @@ import * as React from 'react';
 import { BrowserRouter, Switch, Route, Redirect, NavLink } from 'react-router-dom';
 import StoreState from 'models/StoreState';
 import { Container, Row, Col, Badge } from 'reactstrap';
-
-import MainPage from './../containers/MainPage.component';
+import ScenariosPage from './../containers/ScenariosPage.component';
 import StepsPage from './../containers/StepsPage.component';
 import ScenarioData from 'models/ScenarioData';
 import StepData from 'models/StepData';
 import ScenarioDetailsPage from '../containers/ScenarioDetailsPage.component';
-import TotalDuration from './TotalDuration.component';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './../../../assets/styles/main.scss';
@@ -28,7 +26,7 @@ class App extends React.Component<IAppProps, StoreState> {
 	}
 
 	public getScenariosPageRoute(routeProps: object) {
-		return <MainPage scenarios={this.props.scenarios} totalDuration={this.props.totalDuration} />;
+		return <ScenariosPage scenarios={this.props.scenarios} totalDuration={this.props.totalDuration} />;
 	}
 
 	public getStepsPageRoute(routeProps: object) {

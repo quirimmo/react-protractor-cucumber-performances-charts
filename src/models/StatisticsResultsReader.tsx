@@ -1,6 +1,5 @@
 import StepData, { IStepObject } from './StepData';
 import Utils from './Utils';
-
 const STATISTICS_DATA = require('./statistics.json');
 
 class StatisticsResultsReader {
@@ -20,7 +19,6 @@ class StatisticsResultsReader {
 	public getSteps(): StepData[] {
 		return this.steps;
 	}
-
 }
 
 export default StatisticsResultsReader;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ScenarioData, { IScenarioChartObject } from 'models/ScenarioData';
+import ScenarioData from 'models/ScenarioData';
 import { Container, Row, Col, Collapse, Button, ListGroup, ListGroupItem } from 'reactstrap';
 import TotalDuration from './TotalDuration.component';
 import { NavLink } from 'react-router-dom';
@@ -72,12 +72,7 @@ class Main extends React.Component<IMainProps, IScenariosPageState> {
 				<br />
 				<Row>
 					<Col>
-						<PerformancesBarChart
-							slicesSize={15}
-							data={this.props.scenariosChartData}
-							titleYAxis="Seconds"
-							titleXAxis="Scenarios"
-						/>
+						<PerformancesBarChart slicesSize={15} data={this.props.scenariosChartData} titleYAxis="Seconds" titleXAxis="Scenarios" />
 					</Col>
 				</Row>
 			</Container>

@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { IStepChartObject } from 'models/StepData';
 import { Container, Row, Col } from 'reactstrap';
-import AllStepsBarChart from './AllStepsBarChart.component';
+import PerformancesBarChart, { IBarChartData } from './PerformancesBarChart.component';
 
 interface IStepsProps {
-	stepsChartData: IStepChartObject[];
+	stepsChartData: IBarChartData[];
 }
 
 class Steps extends React.Component<IStepsProps> {
@@ -17,7 +16,7 @@ class Steps extends React.Component<IStepsProps> {
 			<Container>
 				<Row>
 					<Col>
-						<AllStepsBarChart steps={this.props.stepsChartData} />
+						<PerformancesBarChart slicesSize={15} data={this.props.stepsChartData} titleYAxis="Seconds" titleXAxis="Steps" />
 					</Col>
 				</Row>
 			</Container>
