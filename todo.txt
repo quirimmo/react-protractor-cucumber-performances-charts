@@ -1,2 +1,5 @@
-Refactor all code
+Set style of navigation
+Add pie chart in sceharios page
+Set style of scenarios page
+
 Add duration also in the steps

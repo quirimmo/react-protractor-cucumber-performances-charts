@@ -9,6 +9,11 @@ body {
     background: $background-color;
 }
 
+.main-app-wrapper {
+    max-width: 100%;
+    padding: 0;
+}
+
 .page-content-wrapper {
     padding: 20px;
     background-color: white;
@@ -16,6 +21,9 @@ body {
 
 .main-app-title {
     text-align: center;
+    background-color: #007bff;
+    color: white;
+    padding: 20px 0px;
 }
 
 .text-center-aligned {
@@ -57,4 +65,15 @@ body {
 
 .single-scenario-file {
     color: green;
+}
+
+
+
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.col {
+    padding: 0;
 }
