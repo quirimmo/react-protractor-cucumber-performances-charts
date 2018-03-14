@@ -9,14 +9,16 @@ class AppNavigation extends React.Component<object> {
 
 	public render() {
 		return (
-			<Row>
-				<Col sm="2">
-					<NavLink to="/main">Scenarios Page</NavLink>
-				</Col>
-				<Col sm="2">
-					<NavLink to="/steps">Steps Page</NavLink>
-				</Col>
-			</Row>
+			<nav>
+				<Row>
+					<Col sm="2">
+						<NavLink to="/main">Scenarios Page</NavLink>
+					</Col>
+					<Col sm="2">
+						<NavLink to="/steps">Steps Page</NavLink>
+					</Col>
+				</Row>
+			</nav>
 		);
 	}
 }

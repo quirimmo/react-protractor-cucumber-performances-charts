@@ -36,16 +36,18 @@ class AppMainContent extends React.Component<IAppProps> {
 
 	public render() {
 		return (
-			<Row>
-				<Col className="page-content-wrapper">
-					<Switch>
-						<Route path="/main" render={this.getScenariosPageRoute} />
-						<Route path="/steps" render={this.getStepsPageRoute} />
-						<Route path="/scenario-details" render={this.getScenarioDetailsPageRoute} />
-						<Redirect from="/" to="main" />
-					</Switch>
-				</Col>
-			</Row>
+			<section className="main-content-section">
+				<Row>
+					<Col className="page-content-wrapper">
+						<Switch>
+							<Route path="/main" render={this.getScenariosPageRoute} />
+							<Route path="/steps" render={this.getStepsPageRoute} />
+							<Route path="/scenario-details" render={this.getScenarioDetailsPageRoute} />
+							<Redirect from="/" to="main" />
+						</Switch>
+					</Col>
+				</Row>
+			</section>
 		);
 	}
 }

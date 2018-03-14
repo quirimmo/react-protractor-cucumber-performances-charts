@@ -8,14 +8,16 @@ class AppTitle extends React.Component<object> {
 
 	public render() {
 		return (
-			<Row>
-				<Col>
-					<h2 className="main-app-title">
-						Protractor Cucumber Performances Charts
-						{/* <Badge color="secondary">Protractor Cucumber Performances Charts</Badge> */}
-					</h2>
-				</Col>
-			</Row>
+			<header>
+				<Row>
+					<Col>
+						<h2 className="main-app-title">
+							Protractor Cucumber Performances Charts
+							{/* <Badge color="secondary">Protractor Cucumber Performances Charts</Badge> */}
+						</h2>
+					</Col>
+				</Row>
+			</header>
 		);
 	}
 }

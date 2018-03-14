@@ -1,5 +1,4 @@
-Set style of navigation
+Set the scenario details page
 Add pie chart in sceharios page
-Set style of scenarios page
-
-Add duration also in the steps
+Add Unit Tests
+Create distribution task
