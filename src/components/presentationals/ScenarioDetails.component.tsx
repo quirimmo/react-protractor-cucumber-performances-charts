@@ -11,7 +11,6 @@ interface IScenarioDetailsProps {
 class ScenarioDetails extends React.Component<IScenarioDetailsProps> {
 	constructor(props: IScenarioDetailsProps) {
 		super(props);
-		console.log(this.props)
 	}
 
 	public render() {
@@ -25,14 +24,15 @@ class ScenarioDetails extends React.Component<IScenarioDetailsProps> {
 		return (
 			<section>
 				<Row>
-					<Col>{this.props.scenario.name}</Col>
+					<Col><b>{this.props.scenario.name}</b></Col>
 				</Row>
 				<Row>
-					<Col>{this.props.scenario.filePath}</Col>
+					<Col><i>{this.props.scenario.filePath}</i></Col>
 				</Row>
 				<Row>
 					<Col>{this.props.scenario.duration} seconds</Col>
 				</Row>
+				<br/>
 				<Row>
 					<Col>
 						<PerformancesBarChart data={scenariosChartData} titleYAxis="Seconds" titleXAxis="Steps" />

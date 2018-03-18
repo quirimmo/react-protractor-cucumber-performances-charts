@@ -25,10 +25,9 @@ class PerformancesBarChart extends React.Component<IPerformancesBarChartProps> {
 	constructor(props: IPerformancesBarChartProps) {
 		super(props);
 		// if you wanna slices data in multiple charts
-		if (this.props.slicesSize) {
-			// calculate the sliced data
-			this.sliceData();
-		}
+		this.props.slicesSize
+			? this.sliceData()
+			: this.dataSlices.push(this.props.data);
 
 		this.getDefaultTooltip = this.getDefaultTooltip.bind(this);
 	}
