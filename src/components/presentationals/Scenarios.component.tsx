@@ -27,8 +27,8 @@ class Main extends React.Component<IMainProps, IScenariosPageState> {
 		this.props.onSelectScenario(null);
 	}
 
-	public onSelectScenario() {
-		this.props.onSelectScenario(this.props.scenarios[0]);
+	public onSelectScenario(i: number) {
+		this.props.onSelectScenario(this.props.scenarios[i]);
 	}
 
 	public toggle() {
@@ -38,7 +38,7 @@ class Main extends React.Component<IMainProps, IScenariosPageState> {
 	public getAllScenariosListItems() {
 		return this.props.scenariosChartData.map((el, index) => (
 			<ListGroupItem key={index}>
-				<NavLink onClick={this.onSelectScenario} to="/scenario-details">
+				<NavLink onClick={this.onSelectScenario.bind(this, index)} to="/scenario-details">
 					{el.title} [{el.subTitle}]
 				</NavLink>
 			</ListGroupItem>
