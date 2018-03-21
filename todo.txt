@@ -1,4 +1,3 @@
-Set the scenario details page
 Add pie chart in steps page
 Add Unit Tests
 Create distribution task

@@ -11,9 +11,14 @@ const mapStateToProps = (state: StoreState, ownProps: any) => {
 		x: `${+(index + 1)}`,
 		y: scenario.duration
 	}));
+	const scenariosPieChartData = ownProps.scenarios.map((scenario: ScenarioData, index: number) => ({
+		x: scenario.name,
+		y: scenario.duration
+	}));
 	state.selectedScenario = null;
 	return {
 		scenariosChartData,
+		scenariosPieChartData,
 		selectedScenario: state.selectedScenario
 	};
 };

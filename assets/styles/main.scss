@@ -9,8 +9,37 @@ body {
     background: $background-color;
 }
 
+.float-cleared {
+    clear: both;
+}
 
-header .row, .main-content-section .row {
+.tabs-buttons-wrapper {
+    overflow: auto;
+}
+
+.tabs-buttons-wrapper li {
+    float: left;
+    list-style-type: none;
+}
+
+.tabs-buttons {
+    margin-right: 20px;
+}
+
+.tab-button-active {
+    background: #007bff;
+}
+
+.tab-button-active:hover {
+    background: #007bff;
+}
+
+.tab-button-active:focus {
+    box-shadow: none;
+}
+
+header .row,
+.main-content-section .row {
     margin-right: 0px;
     margin-left: 0px;
 }
@@ -81,5 +110,3 @@ nav {
 .single-scenario-file {
     color: green;
 }
-
-
