@@ -1,7 +1,6 @@
 import * as React from 'react';
 import ScenarioData from 'models/ScenarioData';
 import { Container, Row, Col } from 'reactstrap';
-import TotalDuration from './TotalDuration.component';
 import { NavLink } from 'react-router-dom';
 import { IBarChartData } from './PerformancesBarChart.component';
 import { IPieChartData } from './PerformancesPieChart.component';
@@ -9,10 +8,10 @@ import TabHeaderButtons from './TabHeaderButtons.component';
 import TabBodyPanes from './TabBodyPanes.component';
 import PerformancesChartTabs from './PerformancesChartTabs.component';
 import ScenarioListGroup from './ScenarioListGroup.component';
+import TotalDurationContainer from '../containers/TotalDurationContainer.component';
 
 interface IMainProps {
 	scenarios: ScenarioData[];
-	totalDuration: number;
 	scenariosChartData: IBarChartData[];
 	scenariosPieChartData: IPieChartData[];
 	selectedScenario: any;
@@ -29,15 +28,9 @@ class Main extends React.Component<IMainProps, IScenariosPageState> {
 	}
 
 	public render() {
-		const data = [{ x: 'SomethingA', y: 10 }, { x: 'SomethingB', y: 4 }, { x: 'SomethingC', y: 3 }];
-
 		return (
 			<Container>
-				<Row>
-					<Col sm={{ size: 6, offset: 3 }}>
-						<TotalDuration totalDuration={this.props.totalDuration} />
-					</Col>
-				</Row>
+				<TotalDurationContainer />
 				<br />
 				<ScenarioListGroup
 					scenarios={this.props.scenarios}

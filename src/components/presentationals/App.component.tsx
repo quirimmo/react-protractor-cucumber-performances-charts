@@ -13,7 +13,6 @@ import AppMainContent from './AppMainContent.component';
 export interface IAppProps {
 	scenarios: ScenarioData[];
 	steps: StepData[];
-	totalDuration: number;
 }
 
 class App extends React.Component<IAppProps, StoreState> {
@@ -29,7 +28,7 @@ class App extends React.Component<IAppProps, StoreState> {
 					<br />
 					<AppNavigation />
 					<br />
-					<AppMainContent scenarios={this.props.scenarios} steps={this.props.steps} totalDuration={this.props.totalDuration} />
+					<AppMainContent scenarios={this.props.scenarios} steps={this.props.steps} />
 				</Container>
 			</BrowserRouter>
 		);

@@ -18,8 +18,7 @@ const mapStateToProps = (state: StoreState, ownProps: any) => {
 	state.totalDuration = totalDuration;
 	return {
 		scenarios: state.scenarios,
-		steps: state.steps,
-		totalDuration: state.totalDuration
+		steps: state.steps
 	};
 };
 

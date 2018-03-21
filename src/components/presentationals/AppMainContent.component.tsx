@@ -11,7 +11,6 @@ import StepData from 'models/StepData';
 export interface IAppProps {
 	scenarios: ScenarioData[];
 	steps: StepData[];
-	totalDuration: number;
 }
 
 class AppMainContent extends React.Component<IAppProps> {
@@ -23,7 +22,7 @@ class AppMainContent extends React.Component<IAppProps> {
 	}
 
 	public getScenariosPageRoute(routeProps: object) {
-		return <ScenariosPage scenarios={this.props.scenarios} totalDuration={this.props.totalDuration} />;
+		return <ScenariosPage scenarios={this.props.scenarios} />;
 	}
 
 	public getStepsPageRoute(routeProps: object) {
