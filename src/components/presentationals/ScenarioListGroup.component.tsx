@@ -17,6 +17,7 @@ interface IScenarioListGroupState {
 class ScenarioListGroup extends React.Component<IScenarioListGroupProps, IScenarioListGroupState> {
 	constructor(props: IScenarioListGroupProps) {
 		super(props);
+
 		this.state = { collapse: false };
 
 		this.props.onSelectScenario(null);

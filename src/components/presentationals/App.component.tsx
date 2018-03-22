@@ -10,13 +10,8 @@ import AppTitle from './AppTitle.component';
 import AppNavigation from './AppNavigation.component';
 import AppMainContent from './AppMainContent.component';
 
-export interface IAppProps {
-	scenarios: ScenarioData[];
-	steps: StepData[];
-}
-
-class App extends React.Component<IAppProps, StoreState> {
-	constructor(props: IAppProps) {
+class App extends React.Component<{}, StoreState> {
+	constructor(props: {}) {
 		super(props);
 	}
 
@@ -28,7 +23,7 @@ class App extends React.Component<IAppProps, StoreState> {
 					<br />
 					<AppNavigation />
 					<br />
-					<AppMainContent scenarios={this.props.scenarios} steps={this.props.steps} />
+					<AppMainContent />
 				</Container>
 			</BrowserRouter>
 		);

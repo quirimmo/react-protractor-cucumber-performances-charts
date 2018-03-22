@@ -4,7 +4,7 @@ import StoreState from 'models/StoreState';
 import Steps from './../presentationals/Steps.component';
 
 const mapStateToProps = (state: StoreState, ownProps: any) => {
-	const stepsChartData = ownProps.steps.map((step: StepData, index: number) => ({
+	const stepsChartData = state.steps.map((step: StepData, index: number) => ({
 		title: step.name,
 		x: `${+(index + 1)}`,
 		y: step.duration

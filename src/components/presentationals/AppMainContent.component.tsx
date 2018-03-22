@@ -8,25 +8,21 @@ import ScenarioDetailsPage from '../containers/ScenarioDetailsPage.component';
 import ScenarioData from 'models/ScenarioData';
 import StepData from 'models/StepData';
 
-export interface IAppProps {
-	scenarios: ScenarioData[];
-	steps: StepData[];
-}
-
-class AppMainContent extends React.Component<IAppProps> {
-	constructor(props: IAppProps) {
+class AppMainContent extends React.Component<{}> {
+	constructor(props: {}) {
 		super(props);
+
 		this.getScenariosPageRoute = this.getScenariosPageRoute.bind(this);
 		this.getStepsPageRoute = this.getStepsPageRoute.bind(this);
 		this.getScenarioDetailsPageRoute = this.getScenarioDetailsPageRoute.bind(this);
 	}
 
 	public getScenariosPageRoute(routeProps: object) {
-		return <ScenariosPage scenarios={this.props.scenarios} />;
+		return <ScenariosPage />;
 	}
 
 	public getStepsPageRoute(routeProps: object) {
-		return <StepsPage steps={this.props.steps} />;
+		return <StepsPage />;
 	}
 
 	public getScenarioDetailsPageRoute(routeProps: object) {

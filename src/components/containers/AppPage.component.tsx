@@ -7,19 +7,13 @@ import StatisticsResultsReader from './../../models/StatisticsResultsReader';
 const mapStateToProps = (state: StoreState, ownProps: any) => {
 	const performancesResultsReader = new PerformancesResultsReader();
 	performancesResultsReader.read();
-	const scenarios = performancesResultsReader.getScenarios();
-	const totalDuration = performancesResultsReader.getTotalDuration();
 	const statisticsResultsReader = new StatisticsResultsReader();
 	statisticsResultsReader.read();
-	const steps = statisticsResultsReader.getSteps();
 
-	state.scenarios = scenarios;
-	state.steps = steps;
-	state.totalDuration = totalDuration;
-	return {
-		scenarios: state.scenarios,
-		steps: state.steps
-	};
+	state.scenarios = performancesResultsReader.getScenarios();
+	state.steps = statisticsResultsReader.getSteps();
+	state.totalDuration = performancesResultsReader.getTotalDuration();
+	return {};
 };
 
 const mapDispatchToProps = (dispatch: Dispatch<any>) => ({});

@@ -9,12 +9,11 @@ import TabBodyPanes from './TabBodyPanes.component';
 import PerformancesChartTabs from './PerformancesChartTabs.component';
 import ScenarioListGroup from './ScenarioListGroup.component';
 import TotalDurationContainer from '../containers/TotalDurationContainer.component';
+import ScenarioListGroupContainer from '../containers/ScenarioListGroupContainer.component';
 
 interface IMainProps {
-	scenarios: ScenarioData[];
 	scenariosChartData: IBarChartData[];
 	scenariosPieChartData: IPieChartData[];
-	selectedScenario: any;
 	onSelectScenario: (selectedScenario: any) => void;
 }
 
@@ -32,8 +31,7 @@ class Main extends React.Component<IMainProps, IScenariosPageState> {
 			<Container>
 				<TotalDurationContainer />
 				<br />
-				<ScenarioListGroup
-					scenarios={this.props.scenarios}
+				<ScenarioListGroupContainer
 					scenariosChartData={this.props.scenariosChartData}
 					onSelectScenario={this.props.onSelectScenario}
 				/>

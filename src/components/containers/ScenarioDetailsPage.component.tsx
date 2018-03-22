@@ -5,7 +5,7 @@ import ScenarioDetails from '../presentationals/ScenarioDetails.component';
 
 const mapStateToProps = (state: StoreState, ownProps: any) => {
 	return {
-		scenario: state.selectedScenario
+		selectedScenario: state.selectedScenario
 	};
 };
 

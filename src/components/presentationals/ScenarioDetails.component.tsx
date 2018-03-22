@@ -5,7 +5,7 @@ import PerformancesBarChart from './PerformancesBarChart.component';
 import StepData from 'models/StepData';
 
 interface IScenarioDetailsProps {
-	scenario: ScenarioData;
+	selectedScenario: ScenarioData;
 }
 
 class ScenarioDetails extends React.Component<IScenarioDetailsProps> {
@@ -14,7 +14,7 @@ class ScenarioDetails extends React.Component<IScenarioDetailsProps> {
 	}
 
 	public render() {
-		const scenariosChartData = this.props.scenario.steps.map((step: StepData, index: number) => ({
+		const scenariosChartData = this.props.selectedScenario.steps.map((step: StepData, index: number) => ({
 			title: step.name,
 			subTitle: '',
 			x: `${+(index + 1)}`,
@@ -24,15 +24,19 @@ class ScenarioDetails extends React.Component<IScenarioDetailsProps> {
 		return (
 			<section>
 				<Row>
-					<Col><b>{this.props.scenario.name}</b></Col>
+					<Col>
+						<b>{this.props.selectedScenario.name}</b>
+					</Col>
 				</Row>
 				<Row>
-					<Col><i>{this.props.scenario.filePath}</i></Col>
+					<Col>
+						<i>{this.props.selectedScenario.filePath}</i>
+					</Col>
 				</Row>
 				<Row>
-					<Col>{this.props.scenario.duration} seconds</Col>
+					<Col>{this.props.selectedScenario.duration} seconds</Col>
 				</Row>
-				<br/>
+				<br />
 				<Row>
 					<Col>
 						<PerformancesBarChart data={scenariosChartData} titleYAxis="Seconds" titleXAxis="Steps" />

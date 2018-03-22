@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import PerformancesBarChart, { IBarChartData } from './PerformancesBarChart.component';
 import LongestStep from './LongestStep.component';
+import StepData from 'models/StepData';
 
 interface IStepsProps {
 	stepsChartData: IBarChartData[];
