@@ -5,8 +5,6 @@ import StoreState from 'models/StoreState';
 import ScenariosPage from './../containers/ScenariosPage.component';
 import StepsPage from './../containers/StepsPage.component';
 import ScenarioDetailsPage from '../containers/ScenarioDetailsPage.component';
-import ScenarioData from 'models/ScenarioData';
-import StepData from 'models/StepData';
 
 class AppMainContent extends React.Component<{}> {
 	constructor(props: {}) {

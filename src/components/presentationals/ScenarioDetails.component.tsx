@@ -1,8 +1,8 @@
 import * as React from 'react';
 import ScenarioData from 'models/ScenarioData';
+import StepData from 'models/StepData';
 import { Row, Col } from 'reactstrap';
 import PerformancesBarChart from './PerformancesBarChart.component';
-import StepData from 'models/StepData';
 
 interface IScenarioDetailsProps {
 	selectedScenario: ScenarioData;

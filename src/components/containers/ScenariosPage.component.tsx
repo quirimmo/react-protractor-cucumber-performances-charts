@@ -2,7 +2,6 @@ import { connect, Dispatch } from 'react-redux';
 import Scenarios from './../presentationals/Scenarios.component';
 import ScenarioData from 'models/ScenarioData';
 import StoreState from 'models/StoreState';
-import { selectScenario } from './../../actions/scenarios.action';
 
 const mapStateToProps = (state: StoreState, ownProps: any) => {
 	const scenariosChartData = state.scenarios.map((scenario: ScenarioData, index: number) => ({

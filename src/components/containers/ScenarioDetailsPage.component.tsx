@@ -1,5 +1,4 @@
 import { connect, Dispatch } from 'react-redux';
-import { withRouter } from 'react-router';
 import StoreState from 'models/StoreState';
 import ScenarioDetails from '../presentationals/ScenarioDetails.component';
 

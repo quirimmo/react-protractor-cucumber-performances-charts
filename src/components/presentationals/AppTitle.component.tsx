@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Container, Row, Col, Badge } from 'reactstrap';
+import { Row, Col, Badge } from 'reactstrap';
 
 class AppTitle extends React.Component<object> {
 	constructor(props: object) {
@@ -12,8 +12,7 @@ class AppTitle extends React.Component<object> {
 				<Row>
 					<Col>
 						<h2 className="main-app-title">
-							Protractor Cucumber Performances Charts
-							{/* <Badge color="secondary">Protractor Cucumber Performances Charts</Badge> */}
+							<Badge color="secondary">Protractor Cucumber Performances Charts</Badge>
 						</h2>
 					</Col>
 				</Row>

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { BrowserRouter, Switch, Route, Redirect, NavLink } from 'react-router-dom';
-import { Container, Row, Col, Badge } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
+import { Row, Col } from 'reactstrap';
 
 class AppNavigation extends React.Component<object> {
 	constructor(props: object) {

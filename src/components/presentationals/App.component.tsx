@@ -2,8 +2,7 @@ import * as React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import StoreState from 'models/StoreState';
-import ScenarioData from 'models/ScenarioData';
-import StepData from 'models/StepData';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import './../../../assets/styles/main.scss';
 import AppTitle from './AppTitle.component';
