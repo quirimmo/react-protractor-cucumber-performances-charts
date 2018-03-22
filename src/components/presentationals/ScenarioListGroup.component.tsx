@@ -17,18 +17,10 @@ interface IScenarioListGroupState {
 class ScenarioListGroup extends React.Component<IScenarioListGroupProps, IScenarioListGroupState> {
 	constructor(props: IScenarioListGroupProps) {
 		super(props);
-
 		this.state = { collapse: false };
 
-		this.props.onSelectScenario(null);
-
-		this.onSelectScenario = this.onSelectScenario.bind(this);
 		this.toggle = this.toggle.bind(this);
 		this.getAllScenariosListItems = this.getAllScenariosListItems.bind(this);
-	}
-
-	public onSelectScenario(i: number) {
-		this.props.onSelectScenario(this.props.scenarios[i]);
 	}
 
 	public toggle() {
@@ -38,7 +30,7 @@ class ScenarioListGroup extends React.Component<IScenarioListGroupProps, IScenar
 	public getAllScenariosListItems() {
 		return this.props.scenariosChartData.map((el, index) => (
 			<ListGroupItem key={index}>
-				<NavLink onClick={this.onSelectScenario.bind(this, index)} to="/scenario-details">
+				<NavLink onClick={this.props.onSelectScenario.bind(this, this.props.scenarios[index])} to="/scenario-details">
 					{el.title} [{el.subTitle}]
 				</NavLink>
 			</ListGroupItem>

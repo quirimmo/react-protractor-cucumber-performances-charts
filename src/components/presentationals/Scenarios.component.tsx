@@ -14,7 +14,6 @@ import ScenarioListGroupContainer from '../containers/ScenarioListGroupContainer
 interface IMainProps {
 	scenariosChartData: IBarChartData[];
 	scenariosPieChartData: IPieChartData[];
-	onSelectScenario: (selectedScenario: any) => void;
 }
 
 interface IScenariosPageState {
@@ -31,10 +30,7 @@ class Main extends React.Component<IMainProps, IScenariosPageState> {
 			<Container>
 				<TotalDurationContainer />
 				<br />
-				<ScenarioListGroupContainer
-					scenariosChartData={this.props.scenariosChartData}
-					onSelectScenario={this.props.onSelectScenario}
-				/>
+				<ScenarioListGroupContainer scenariosChartData={this.props.scenariosChartData} />
 				<br />
 				<PerformancesChartTabs scenariosChartData={this.props.scenariosChartData} scenariosPieChartData={this.props.scenariosPieChartData} />
 			</Container>
