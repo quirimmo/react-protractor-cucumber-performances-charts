@@ -1,0 +1,34 @@
+{
+    "duration": 11489,
+    "scenarios": [
+        {
+            "name": "Main Test: Third Scenario - Outline Example",
+            "file": "test\\main.feature",
+            "duration": 5634
+        },
+        {
+            "name": "Main Test: Second Scenario",
+            "file": "test\\main.feature",
+            "duration": 2950
+        },
+        {
+            "name": "Main Test: First Scenario",
+            "file": "test\\main.feature",
+            "duration": 2905
+        }
+    ],
+    "steps": [
+        {
+            "name": "When I do some useless operation",
+            "duration": 2551
+        },
+        {
+            "name": "Given I load the page",
+            "duration": 398
+        },
+        {
+            "name": "Then I check the expectation",
+            "duration": 5
+        }
+    ]
+}

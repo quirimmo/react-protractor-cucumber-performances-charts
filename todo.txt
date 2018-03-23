@@ -1,0 +1,5 @@
+Refactor total duration to access state with a contaainer directly
+Refactor ScenarioListGroup component to have a container which accesses state directly
+Add pie chart in steps page
+Add Unit Tests
+Create distribution task

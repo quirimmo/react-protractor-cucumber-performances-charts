@@ -1,0 +1,112 @@
+$background-color: #efefef;
+//
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: $background-color;
+}
+
+.float-cleared {
+    clear: both;
+}
+
+.tabs-buttons-wrapper {
+    overflow: auto;
+}
+
+.tabs-buttons-wrapper li {
+    float: left;
+    list-style-type: none;
+}
+
+.tabs-buttons {
+    margin-right: 20px;
+}
+
+.tab-button-active {
+    background: #007bff;
+}
+
+.tab-button-active:hover {
+    background: #007bff;
+}
+
+.tab-button-active:focus {
+    box-shadow: none;
+}
+
+header .row,
+.main-content-section .row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+header .col {
+    padding: 0;
+}
+
+nav {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.main-app-wrapper {
+    max-width: 100%;
+    padding: 0;
+}
+
+.page-content-wrapper {
+    padding: 20px;
+    background-color: white;
+}
+
+.main-app-title {
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    padding: 20px 0px;
+}
+
+.text-center-aligned {
+    text-align: center;
+}
+
+.boldify {
+    font-weight: bold;
+}
+
+.alert-total-duration span {
+    background: #FFFF00;
+    padding: 5px;
+    border-radius: 5%;
+    margin-left: 5px;
+}
+
+.tooltip {
+    opacity: 1;
+    margin-top: 50px;
+}
+
+.wrapper-performances-bar-chart {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.wrapper-scenario-chart-tooltip {
+    background: white;
+    box-shadow: 2px 2px 2px #888;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: left;
+}
+
+.single-scenario-duration {
+    color: red;
+}
+
+.single-scenario-file {
+    color: green;
+}
