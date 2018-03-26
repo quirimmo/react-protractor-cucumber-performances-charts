@@ -6,6 +6,8 @@ import { shallow } from 'enzyme';
 
 it('fake', () => {
 	const component = shallow(<App />);
+
+	expect(2).toBe(2);
 	expect(component).toBeDefined();
 	// expect(result).toBeTruthy();
 });
