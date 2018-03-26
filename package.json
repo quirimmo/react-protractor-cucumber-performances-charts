@@ -54,7 +54,6 @@
 		"html-webpack-plugin": "^2.30.1",
 		"jest": "^22.4.3",
 		"jest-cli": "^22.4.3",
-		"jest-css-modules": "^1.1.0",
 		"jest-css-modules-transform": "^1.0.5",
 		"jsdom": "^11.5.1",
 		"node-sass": "^4.7.2",
@@ -96,12 +95,12 @@
 		"redux": "^3.7.2"
 	},
 	"jest": {
-		"setupFiles": ["./test/test-preprocessor.js", "./test/test-shim.js", "./test/test-setup.js"],
+		"setupFiles": ["<rootDir>/test/test-shim.js", "<rootDir>/test/test-setup.js"],
 		"moduleFileExtensions": ["ts", "tsx", "js"],
 		"moduleNameMapper": { "\\.(css|less)$": "<rootDir>/test/style-mock.js" },
 		"transform": {
-			".+\\.(css|styl|less|sass|scss)$": "./node_modules/jest-css-modules-transform",
-			".(tsx|ts)": "./test/test-preprocessor.js"
+			".+\\.(css|styl|less|sass|scss)$": "<rootDir>/node_modules/jest-css-modules-transform",
+			".(tsx|ts)": "<rootDir>/test/test-preprocessor.js"
 		},
 		"testMatch": ["**/*.spec.(ts|tsx|js)"]
 	}
