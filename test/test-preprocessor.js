@@ -10,13 +10,6 @@ var babelJest = require('babel-jest');
 
 module.exports = {
 	process(src, path) {
-		// if (path.match(/\.[css|less|scss]/)) {
-		//     return '';
-		// }
-		// return babelJest.process(src, path);
-
-		// return babelJest.process(src, path).replace(/require\(\'[^\']+\.css\'\);/gm, '');
-
 		if (path.endsWith('.ts') || path.endsWith('.tsx') || path.endsWith('.js')) {
 			return tsc.transpile(src, tsConfig.compilerOptions, path, []);
 		}
