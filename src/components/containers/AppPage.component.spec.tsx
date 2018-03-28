@@ -4,16 +4,8 @@ import * as TestUtils from 'react-dom/test-utils';
 import { shallow, ShallowWrapper } from 'enzyme';
 const configureMockStore = require('redux-mock-store');
 
-import PerformancesResultsReader from './../../models/PerformancesResultsReader';
-jest.mock('./__mocks__/PerformancesResultsReader.js');
-// jest.mock(
-// 	'./../../models/PerformancesResultsReader',
-// 	class PerformancesResultsReader{
-// 		constructor() {
-// 			console.log('maybe work?')
-// 		}
-// 	}
-// );
+jest.mock('./../../models/PerformancesResultsReader');
+
 import AppPage from './AppPage.component';
 
 const mockStore = configureMockStore();
