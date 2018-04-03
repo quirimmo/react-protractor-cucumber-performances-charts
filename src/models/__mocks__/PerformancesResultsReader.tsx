@@ -1,14 +1,9 @@
 class PerformancesResultsReader {
-	constructor() {
-		console.log('Mock SoundPlayer: constructor was called');
-	}
+	constructor() {}
 
-	read() {
-		console.log('Mock SoundPlayer: playSoundFile was called');
-	}
-
-	getScenarios() {}
-	getTotalDuration() {}
+	read = jest.fn(() => {});
+	getScenarios = jest.fn(() => ['Scenario 1', 'Scenario 2']);
+	getTotalDuration = jest.fn(() => 10);
 }
 
 export default PerformancesResultsReader;
