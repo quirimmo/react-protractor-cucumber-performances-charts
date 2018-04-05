@@ -6,7 +6,8 @@
     "start": "webpack-dev-server --open",
     "build": "webpack -p",
     "test": "./node_modules/.bin/jest --watch",
-    "test-single-run": "./node_modules/.bin/jest"
+    "test-single-run": "./node_modules/.bin/jest",
+    "test-coverage": "./node_modules/.bin/jest --watch -- --coverage"
   },
   "repository": {
     "type": "git",
