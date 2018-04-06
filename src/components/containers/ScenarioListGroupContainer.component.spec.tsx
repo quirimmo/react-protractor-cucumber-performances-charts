@@ -27,14 +27,8 @@ describe('ScenarioListGroupContainer Component', () => {
 		expect(typeof component.props().onSelectScenario).toBe('function');
 	});
 
-	it('should dispatch', () => {
-		// component.props().store.dispatch = () => {console.log('cristo dio')};
+	it('should dispatch the select scenario action', () => {
 		component.props().onSelectScenario('New Selected Scenario');
-		// console.log(store.getState().content);
-		// store.dispatch(selectScenario(new ScenarioData('New Selected Scenario', 1, '', [])));
-		// selectScenario = jest.fn(() => {});
-		// component.props().onSelectScenario('New Selected Scenario');
-		// console.log(store.getState());
-		// expect(store.dispatch).toHaveBeenCalled();
+		expect(store.getActions()).toEqual([ { type: 'SELECT_SCENARIO', selectedScenario: 'New Selected Scenario' } ]);
 	});
 });
