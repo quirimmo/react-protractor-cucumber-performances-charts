@@ -52,7 +52,16 @@ describe('App Presentational Component', () => {
 	});
 
 	describe('Routes', () => {
+		describe('Main Route', () => {
+			it('should define the path main', () => {
+				// const mainRoute = component.find(Route);
+				// console.log(mainRoute.props().path)
+				// expect(mainRoute.props())
+				// <Route path="/main" render={this.getScenariosPageRoute} />
+			});
+		});
 	});
+
 	describe('Redirect', () => {
 	});
 	describe('getScenariosPageRoute', () => {

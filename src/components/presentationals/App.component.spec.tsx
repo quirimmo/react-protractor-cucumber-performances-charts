@@ -10,7 +10,6 @@ import AppNavigation from './AppNavigation.component';
 import AppMainContent from './AppMainContent.component';
 
 
-
 let component: ShallowWrapper<any, any>;
 
 describe('App Presentational Component', () => {
