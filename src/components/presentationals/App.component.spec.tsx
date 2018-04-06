@@ -4,11 +4,11 @@ import * as TestUtils from 'react-dom/test-utils';
 import App from './App.component';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { BrowserRouter } from 'react-router-dom';
-import StoreState from 'models/StoreState';
 import { Container } from 'reactstrap';
 import AppTitle from './AppTitle.component';
 import AppNavigation from './AppNavigation.component';
 import AppMainContent from './AppMainContent.component';
+
 
 
 let component: ShallowWrapper<any, any>;
