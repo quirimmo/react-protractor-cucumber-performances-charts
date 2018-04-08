@@ -76,9 +76,11 @@ class PerformancesBarChart extends React.Component<IPerformancesBarChartProps> {
 	private sliceData(): void {
 		const slicesSize: number = 15;
 		this.dataSlices = [];
+		// console.log(this.props.data.length);
 		for (let i = 0; i < this.props.data.length; i += slicesSize) {
 			this.dataSlices.push(this.props.data.slice(i, i + slicesSize));
 		}
+		console.log(this.dataSlices.length)
 	}
 
 	private getDefaultTooltip(x: string) {
