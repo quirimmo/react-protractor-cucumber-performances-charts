@@ -48,13 +48,13 @@ describe('PerformancesBarChart Presentational Component', () => {
 
 			describe('dataSlices attribute', () => {
 				it('should be equal to an array sliced with data prop', () => {
-					expect(component.instance().dataSlices).toEqual([[dataObject1, dataObject2]]);
+					expect(component.instance().dataSlices).toEqual([[dataObject1], [dataObject2]]);
 				});
 			});
 		});
 	});
 
-	describe('getDefaultTooltip method', () => {
+	describe('tooltip', () => {
 		beforeEach(() => {
 			component = shallow(<PerformancesBarChart data={data} />);
 		});
@@ -83,6 +83,35 @@ describe('PerformancesBarChart Presentational Component', () => {
 			it('should contain one BarChart component', () => {
 				expect(component.find(BarChart)).toHaveLength(1);
 			});
+
+			it('should contain one BarChart with the default props', () => {
+				expect(component.find(BarChart).props()).toEqual(
+					expect.objectContaining({
+						barPadding: 0.8,
+						data: {
+							values: data
+						},
+						width: 1000,
+						height: 600,
+						xAxis: {
+							innerTickSize: 5,
+							label: 'X'
+						},
+						yAxis: {
+							innerTickSize: 5,
+							label: 'Y'
+						},
+						tooltipHtml: component.instance().getDefaultTooltip,
+						colorByLabel: false,
+						margin: {
+							top: 10,
+							bottom: 50,
+							left: 50,
+							right: 10
+						}
+					})
+				);
+			});
 		});
 
 		describe('Component with slicesSize defined', () => {
@@ -90,10 +119,9 @@ describe('PerformancesBarChart Presentational Component', () => {
 				component = shallow(<PerformancesBarChart data={data} slicesSize={1} />);
 			});
 
-			// it('should contain two BarChart components', () => {
-			// 	console.log(component.find(BarChart))
-			// 	expect(component.find(BarChart)).toHaveLength(2);
-			// });
+			it('should contain two BarChart components', () => {
+				expect(component.find(BarChart)).toHaveLength(2);
+			});
 		});
 	});
 });
