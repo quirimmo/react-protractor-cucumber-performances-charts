@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { Row, Col } from 'reactstrap';
-import StoreState from 'models/StoreState';
 import ScenariosPage from './../containers/ScenariosPage.component';
 import StepsPage from './../containers/StepsPage.component';
 import ScenarioDetailsPage from '../containers/ScenarioDetailsPage.component';
