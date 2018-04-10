@@ -51,7 +51,7 @@ class PerformancesPieChart extends React.Component<IPerformancesPieChartProps> {
 	}
 
 	private sliceData(): void {
-		const slicesSize: number = 15;
+		const slicesSize: number = this.props.slicesSize || 15;
 		this.dataSlices = [];
 		for (let i = 0; i < this.props.data.length; i += slicesSize) {
 			this.dataSlices.push(this.props.data.slice(i, i + slicesSize));
