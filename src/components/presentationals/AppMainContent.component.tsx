@@ -35,7 +35,7 @@ class AppMainContent extends React.Component<{}> {
 							<Route path="/main" render={this.getScenariosPageRoute} />
 							<Route path="/steps" render={this.getStepsPageRoute} />
 							<Route path="/scenario-details" render={this.getScenarioDetailsPageRoute} />
-							<Redirect from="/" to="main" />
+							<Redirect from="/" to="/main" />
 						</Switch>
 					</Col>
 				</Row>
