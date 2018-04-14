@@ -16,7 +16,7 @@ class App extends React.Component<{}, StoreState> {
 
 	public render() {
 		return (
-			<BrowserRouter>
+			<BrowserRouter basename="/cucumber-performances-charts">
 				<Container className="main-app-wrapper">
 					<AppTitle />
 					<br />

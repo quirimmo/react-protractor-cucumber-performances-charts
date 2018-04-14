@@ -4,10 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const BUILD_DIR = path.resolve(__dirname, 'dist');
-const SRC_DIR = path.resolve(__dirname, 'src');
-const APP_DIR = path.resolve(__dirname, 'src/app');
+const BUILD_DIR = path.resolve(__dirname, './dist');
+const SRC_DIR = path.resolve(__dirname, './src');
+const APP_DIR = path.resolve(__dirname, './src/app');
 const TSLINT_CONFIG = require('./tslint.json');
+const SUBDOMAIN_PATH = '/cucumber-performances-charts';
 
 const config = {
 	entry: SRC_DIR + '/index.tsx',
@@ -24,6 +25,7 @@ const config = {
 	],
 	output: {
 		path: BUILD_DIR,
+		publicPath: SUBDOMAIN_PATH,
 		filename: 'bundle.js'
 	},
 	node: {
@@ -38,10 +40,10 @@ const config = {
 				use: 'ts-loader'
 			},
 			{
-                test: /\.tsx|\.ts/,
+				test: /\.tsx|\.ts/,
 				exclude: /node_modules/,
-                loader: 'tslint-loader',
-                options: TSLINT_CONFIG
+				loader: 'tslint-loader',
+				options: TSLINT_CONFIG
 			},
 			{
 				test: /\.css$/,
@@ -69,7 +71,12 @@ const config = {
 	},
 	devServer: {
 		contentBase: path.join(__dirname, 'dist'),
-		historyApiFallback: true
+		publicPath: '/cucumber-performances-charts',
+		historyApiFallback: {
+			rewrites: [
+				{ from: /./, to: `${SUBDOMAIN_PATH}` }
+			]
+		}
 	}
 };
 
