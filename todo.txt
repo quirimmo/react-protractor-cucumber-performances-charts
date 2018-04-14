@@ -1,1 +1,1 @@
-Create distribution task
+Fetch the json instead of importing it
