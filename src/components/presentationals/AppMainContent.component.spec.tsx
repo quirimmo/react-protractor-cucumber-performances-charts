@@ -113,7 +113,7 @@ describe('App Presentational Component', () => {
 		});
 
 		it('should redirect to main', () => {
-			expect(redirect.props().to).toEqual('main');
+			expect(redirect.props().to).toEqual('/main');
 		});
 	});
 
