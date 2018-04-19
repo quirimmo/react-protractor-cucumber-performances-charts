@@ -10,6 +10,7 @@ ftp_transfer () {
 # if destination branch of the PR is master
 # then ftp app to the server
 if [ $(is_master_PR) = true ]; then
-	ftp_dev_address=$BITWEED_FTP_DOMAIN/$TRAVIS_PULL_REQUEST
+	# ftp_dev_address=$BITWEED_FTP_DOMAIN/$TRAVIS_PULL_REQUEST
+	ftp_dev_address=$BITWEED_FTP_DOMAIN
 	ftp_transfer $FTP_USER $FTP_PASSWORD $ftp_dev_address
 fi
