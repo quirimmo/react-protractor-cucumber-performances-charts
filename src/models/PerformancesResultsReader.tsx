@@ -2,6 +2,7 @@ import ScenarioData, { IScenarioObject } from './ScenarioData';
 import StepData, { IStepObject } from './StepData';
 import Utils from './Utils';
 const PERFORMANCES_DATA = require('./data.json');
+import axios from 'axios';
 
 class PerformancesResultsReader {
 	public scenarios: ScenarioData[];
@@ -15,6 +16,15 @@ class PerformancesResultsReader {
 	}
 
 	public read(): void {
+		axios.get('/cucumber-performances-charts/data.json').then(
+			resp => {
+				console.log(resp);
+			},
+			err => {
+				console.log(err);
+			}
+		);
+
 		this.totalExecutionTime = Utils.convertDurationFromMilliSecToSec(PERFORMANCES_DATA.totalTime);
 		PERFORMANCES_DATA.scenarios.forEach(onEachScenario.bind(this));
 
