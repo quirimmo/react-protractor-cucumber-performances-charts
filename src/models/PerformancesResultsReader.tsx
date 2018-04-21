@@ -16,7 +16,7 @@ class PerformancesResultsReader {
 	}
 
 	public read(): void {
-		axios.get('/cucumber-performances-charts/data.json').then(
+		axios.get('http://localhost:8080//cucumber-performances-charts/data/data.json').then(
 			resp => {
 				console.log(resp);
 			},
@@ -24,6 +24,21 @@ class PerformancesResultsReader {
 				console.log(err);
 			}
 		);
+
+		// fetch('/data/data.json').then(
+		// 	resp => {
+		// 		console.dir(resp);
+		// 	},
+		// 	err => {
+		// 		console.log(err);
+		// 	}
+		// );
+
+		// fetch('/data/data.json')
+		// 	.then(r => r.json())
+		// 	.then(json => {
+		// 		console.log(json);
+		// 	});
 
 		this.totalExecutionTime = Utils.convertDurationFromMilliSecToSec(PERFORMANCES_DATA.totalTime);
 		PERFORMANCES_DATA.scenarios.forEach(onEachScenario.bind(this));
