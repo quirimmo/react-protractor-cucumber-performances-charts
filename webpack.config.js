@@ -8,7 +8,7 @@ const BUILD_DIR = path.resolve(__dirname, './dist');
 const SRC_DIR = path.resolve(__dirname, './src');
 const APP_DIR = path.resolve(__dirname, './src/app');
 const TSLINT_CONFIG = require('./tslint.json');
-const SUBDOMAIN_PATH = '/cucumber-performances-charts';
+const SUBDOMAIN_PATH = '/react-cucumber-charts';
 
 const config = {
 	entry: SRC_DIR + '/index.tsx',
@@ -71,7 +71,7 @@ const config = {
 	},
 	devServer: {
 		contentBase: path.join(__dirname, 'dist'),
-		publicPath: '/cucumber-performances-charts',
+		publicPath: SUBDOMAIN_PATH,
 		historyApiFallback: {
 			rewrites: [
 				{ from: /./, to: `${SUBDOMAIN_PATH}` }
