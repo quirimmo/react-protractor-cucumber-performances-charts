@@ -1,5 +1,5 @@
 jest.mock(
-	'./data.json',
+	'./data/data.json',
 	() => ({
 		totalTime: 100,
 		scenarios: [

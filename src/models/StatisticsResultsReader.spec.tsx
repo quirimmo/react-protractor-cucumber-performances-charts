@@ -1,4 +1,4 @@
-jest.mock('./statistics.json', () => ({ duration: 10, steps: [{ name: 'Title', duration: 1 }] }), { virtual: true });
+jest.mock('./data/statistics.json', () => ({ duration: 10, steps: [{ name: 'Title', duration: 1 }] }), { virtual: true });
 jest.mock('./Utils');
 
 import StatisticsResultsReader from './StatisticsResultsReader';

@@ -1,6 +1,6 @@
 import StepData, { IStepObject } from './StepData';
 import Utils from './Utils';
-const STATISTICS_DATA = require('./statistics.json');
+const STATISTICS_DATA = require('./data/statistics.json');
 
 class StatisticsResultsReader {
 	public steps: StepData[];
